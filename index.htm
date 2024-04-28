@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AsTrO-wOrLd</title>
+    <style>
+        .subhead {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .detail {
+            width: 70%;
+        }
+    </style>
+
+</head>
+
+<p>
+<h1>What does your Birthday says ?</h1>
+<label for="dob">Enter your Date of Birth:</label>
+<input type="date" id="dob" name="dob"><br>
+<button onclick="showAstroData()"> Show </button>
+</p>
+<p>
+<div id="sun_sign" class="subhead"></div>
+<div id="sun_sign_detail" class="detail"></div>
+</p>
+<p>
+<div id="bird" class="subhead"></div>
+<div id="bird_detail" class="detail"></div>
+</p>
+<p>
+<div id="tree" class="subhead"></div>
+<div id="tree_detail" class="detail"></div>
+</p>
+<hr />
+<h5>References: Data is based on random articles from year 2010.</h5>
+<script src="astro_data.js"></script>
+<script src="util.js"></script>
+</body>
+
+</html>
