@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .event {
+            margin-bottom: 20px;
+        }
+
+        .event-date {
+            font-weight: bold;
+        }
+
+        li {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Upcoming Special Events</h1>
+    <div id="events"></div>
+
+    <script src="world_days.js"></script>
+    <script>
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);  // Ignore time part of today's date.
+
+        var eventsDiv = document.getElementById('events');
+        var count = 0;
+        while (count < 3) {
+            day = dateKey(today);
+            console.log(day);
+            if (day in specialDays) {
+                var eventDiv = document.createElement('div');
+                eventDiv.className = 'event';
+
+                var eventDateDiv = document.createElement('div');
+                eventDateDiv.className = 'event-date';
+                eventDateDiv.textContent = 'Date: ' + today.toDateString();
+
+                var eventList = document.createElement('div');
+                for (i in specialDays[day]) {
+                    var listItem = document.createElement('li');
+                    listItem.textContent = specialDays[day][i];
+                    eventList.appendChild(listItem);
+                }
+
+                eventDiv.appendChild(eventDateDiv);
+                eventDiv.appendChild(eventList);
+
+                eventsDiv.appendChild(eventDiv);
+
+                count++;
+            }
+            today.setDate(today.getDate() + 1);
+        }
+    </script>
+</body>
+
+</html>
