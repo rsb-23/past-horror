@@ -1,89 +1,86 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
+      .event {
+        margin-bottom: 20px;
+      }
 
-        .event {
-            margin-bottom: 20px;
-        }
+      .event-date {
+        font-weight: bold;
+      }
 
-        .event-date {
-            font-weight: bold;
-        }
+      ul {
+        list-style-type: "- ";
+        margin-left: -10px;
+      }
 
-        ul {
-            list-style-type: "- ";
-            margin-left: -10px;
-        }
-
-        li {
-            margin-left: 10px;
-        }
+      li {
+        margin-left: 10px;
+      }
     </style>
-</head>
+    <title>Famous Days &amp; Birthdays</title>
+  </head>
 
-<body>
-    <h1>Famous Days and Birthdays</h1>
-    <div id="events"></div>
-
+  <body background="imgs/Designer.png">
+    <div class="all">
+      <h1>Famous Days and Birthdays</h1>
+      <div id="events"></div>
+    </div>
 
     <script src="js/world_days.js"></script>
     <script>
-        var today = new Date();
-        today.setHours(0, 0, 0, 0);  // Ignore time part of today's date.
+      var today = new Date();
+      today.setHours(0, 0, 0, 0); // Ignore time part of today's date.
 
-        var eventsDiv = document.getElementById('events');
-        var count = 0;
-        while (count < 3) {
-            day = dateKey(today);
-            if (day in specialDays || day in celebBdays) {
-                var eventDiv = document.createElement('div');
-                eventDiv.className = 'event';
+      var eventsDiv = document.getElementById("events");
+      var count = 0;
+      while (count < 3) {
+        day = dateKey(today);
+        if (day in specialDays || day in celebBdays) {
+          var eventDiv = document.createElement("div");
+          eventDiv.className = "event";
 
-                var eventDateDiv = document.createElement('div');
-                eventDateDiv.className = 'event-date';
-                eventDateDiv.textContent = 'Date: ' + today.toDateString();
-                eventDiv.appendChild(eventDateDiv);
+          var eventDateDiv = document.createElement("div");
+          eventDateDiv.className = "event-date";
+          eventDateDiv.textContent = "Date: " + today.toDateString();
+          eventDiv.appendChild(eventDateDiv);
 
-                if (day in specialDays) {
-                    var eventLabel = document.createElement("span");
-                    eventLabel.textContent = "World Days :";
+          if (day in specialDays) {
+            var eventLabel = document.createElement("span");
+            eventLabel.textContent = "World Days :";
 
-                    var eventList = document.createElement('ul');
-                    for (i in specialDays[day]) {
-                        var listItem = document.createElement('li');
-                        listItem.innerHTML = specialDays[day][i];
-                        eventList.appendChild(listItem);
-                    }
-
-                    eventDiv.append(eventLabel);
-                    eventDiv.appendChild(eventList);
-                }
-
-                if (day in celebBdays) {
-                    var bdayLabel = document.createElement("label");
-                    bdayLabel.textContent = "Birthdays :";
-                    var bdayList = document.createElement('ul');
-                    for (i in celebBdays[day]) {
-                        var listItem = document.createElement('li');
-                        listItem.textContent = celebBdays[day][i];
-                        bdayList.appendChild(listItem);
-                    }
-
-                    eventDiv.append(bdayLabel);
-                    eventDiv.appendChild(bdayList);
-                }
-
-                eventsDiv.appendChild(eventDiv);
-                count++;
+            var eventList = document.createElement("ul");
+            for (i in specialDays[day]) {
+              var listItem = document.createElement("li");
+              listItem.innerHTML = specialDays[day][i];
+              eventList.appendChild(listItem);
             }
-            today.setDate(today.getDate() + 1);
-        }
-    </script>
-</body>
 
+            eventDiv.append(eventLabel);
+            eventDiv.appendChild(eventList);
+          }
+
+          if (day in celebBdays) {
+            var bdayLabel = document.createElement("label");
+            bdayLabel.textContent = "Birthdays :";
+            var bdayList = document.createElement("ul");
+            for (i in celebBdays[day]) {
+              var listItem = document.createElement("li");
+              listItem.textContent = celebBdays[day][i];
+              bdayList.appendChild(listItem);
+            }
+
+            eventDiv.append(bdayLabel);
+            eventDiv.appendChild(bdayList);
+          }
+
+          eventsDiv.appendChild(eventDiv);
+          count++;
+        }
+        today.setDate(today.getDate() + 1);
+      }
+    </script>
+  </body>
 </html>

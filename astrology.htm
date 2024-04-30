@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>AsTrO-wOrLd</title>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
     <style>
-        .subhead {
-            font-size: 20px;
-            font-weight: bold;
-        }
+      .subhead {
+        font-size: 20px;
+        font-weight: bold;
+      }
 
-        .detail {
-            width: 70%;
-        }
+      .detail {
+        width: 70%;
+      }
     </style>
+    <title>AsTrO-wOrLd</title>
+  </head>
+  <body background="imgs/Designer.png">
+    <div class="all">
+      <h1>What does your Birthday says ?</h1>
+      <label for="dob">Enter your Date of Birth:</label>
+      <input type="date" id="dob" name="dob" value="1990-01-01" /><br />
+      <button onclick="showAstroData()">Show</button>
 
-</head>
+      <p></p>
+      <div id="sun_sign" class="subhead"></div>
+      <div id="sun_sign_detail" class="detail"></div>
 
-<p>
-<h1>What does your Birthday says ?</h1>
-<label for="dob">Enter your Date of Birth:</label>
-<input type="date" id="dob" name="dob" value="1990-01-01"><br>
-<button onclick="showAstroData()"> Show </button>
-</p>
-<p>
-<div id="sun_sign" class="subhead"></div>
-<div id="sun_sign_detail" class="detail"></div>
-</p>
-<p>
-<div id="bird" class="subhead"></div>
-<div id="bird_detail" class="detail"></div>
-</p>
-<p>
-<div id="tree" class="subhead"></div>
-<div id="tree_detail" class="detail"></div>
-</p>
-<hr />
-<h5>References: Data is based on random articles from year 2010.</h5>
-<script src="js/astro_data.js"></script>
-<script src="js/util.js"></script>
-</body>
+      <p></p>
+      <div id="bird" class="subhead"></div>
+      <div id="bird_detail" class="detail"></div>
 
+      <p></p>
+      <div id="tree" class="subhead"></div>
+      <div id="tree_detail" class="detail"></div>
+
+      <hr />
+      <h5>References: Data is based on random articles from year 2010.</h5>
+    </div>
+    <script src="js/astro_data.js"></script>
+    <script src="js/util.js"></script>
+  </body>
 </html>
