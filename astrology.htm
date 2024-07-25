@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-IN">
   <head>
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <style>
@@ -12,13 +12,15 @@
         width: 70%;
       }
     </style>
-    <title>AsTrO-wOrLd</title>
+    <title>Nostalgia | AsTrO-wOrLd</title>
   </head>
   <body background="imgs/Designer.png">
     <div class="all">
-      <h1>What does your Birthday says ?</h1>
+      <h1>What does your Birthday say?</h1>
       <label for="dob">Enter your Date of Birth:</label>
-      <input type="date" id="dob" name="dob" value="1990-01-01" /><br />
+      <input type="text" id="dob_display" size="10" hidden />
+      <input type="date" id="dob" name="dob" value="1990-01-01" onchange="syncDobFields()" readonly />
+      <button type="button" class="date-picker" onclick="showDatePicker()">📅</button> <br />
       <button onclick="showAstroData()">Show</button>
 
       <p></p>

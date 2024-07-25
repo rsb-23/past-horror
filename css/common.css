@@ -8,3 +8,19 @@ body {
   padding: 2rem;
   background-color: rgba(141, 146, 141, 0.7);
 }
+input[readonly] {
+  cursor: none;
+}
+#dob {
+  color: black;
+}
+.date-picker {
+  display: inline-block;
+  padding: 2px;
+  background-color: #3e93ed;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: medium;
+}

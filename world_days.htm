@@ -12,7 +12,7 @@
       }
 
       ul {
-        list-style-type: "- ";
+        list-style-type: '- ';
         margin-left: -10px;
       }
 
@@ -20,7 +20,7 @@
         margin-left: 10px;
       }
     </style>
-    <title>Famous Days &amp; Birthdays</title>
+    <title>Nostalgia | Famous Days &amp; Birthdays</title>
   </head>
 
   <body background="imgs/Designer.png">
@@ -34,26 +34,26 @@
       var today = new Date();
       today.setHours(0, 0, 0, 0); // Ignore time part of today's date.
 
-      var eventsDiv = document.getElementById("events");
+      var eventsDiv = document.getElementById('events');
       var count = 0;
       while (count < 3) {
         day = dateKey(today);
         if (day in specialDays || day in celebBdays) {
-          var eventDiv = document.createElement("div");
-          eventDiv.className = "event";
+          var eventDiv = document.createElement('div');
+          eventDiv.className = 'event';
 
-          var eventDateDiv = document.createElement("div");
-          eventDateDiv.className = "event-date";
-          eventDateDiv.textContent = "Date: " + today.toDateString();
+          var eventDateDiv = document.createElement('div');
+          eventDateDiv.className = 'event-date';
+          eventDateDiv.textContent = 'Date: ' + today.toDateString();
           eventDiv.appendChild(eventDateDiv);
 
           if (day in specialDays) {
-            var eventLabel = document.createElement("span");
-            eventLabel.textContent = "World Days :";
+            var eventLabel = document.createElement('span');
+            eventLabel.textContent = 'World Days :';
 
-            var eventList = document.createElement("ul");
+            var eventList = document.createElement('ul');
             for (i in specialDays[day]) {
-              var listItem = document.createElement("li");
+              var listItem = document.createElement('li');
               listItem.innerHTML = specialDays[day][i];
               eventList.appendChild(listItem);
             }
@@ -63,11 +63,11 @@
           }
 
           if (day in celebBdays) {
-            var bdayLabel = document.createElement("label");
-            bdayLabel.textContent = "Birthdays :";
-            var bdayList = document.createElement("ul");
+            var bdayLabel = document.createElement('label');
+            bdayLabel.textContent = 'Birthdays :';
+            var bdayList = document.createElement('ul');
             for (i in celebBdays[day]) {
-              var listItem = document.createElement("li");
+              var listItem = document.createElement('li');
               listItem.textContent = celebBdays[day][i];
               bdayList.appendChild(listItem);
             }
