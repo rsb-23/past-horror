@@ -1,26 +1,74 @@
-body {
-  font-family: Arial, sans-serif;
-  margin-top: 5%;
-  margin-left: 30%;
+html {
+  font-size: 18px; /* Base font size */
 }
+
+body {
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  margin: 5% 0;
+
+  background-image: url('../imgs/Designer.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
 .all {
-  width: 50%;
+  width: 70%;
+  max-width: 600px;
+  margin: auto;
+  /* aspect-ratio: 16/9; */
   padding: 2rem;
   background-color: rgba(141, 146, 141, 0.7);
 }
-input[readonly] {
-  cursor: none;
-}
+
 #dob {
   color: black;
 }
-.date-picker {
-  display: inline-block;
-  padding: 2px;
-  background-color: #3e93ed;
-  color: white;
+
+/* Basic reset for button */
+button {
   border: none;
-  border-radius: 5px;
+  padding: 0;
+  margin: 0;
+  font: inherit;
   cursor: pointer;
-  font-size: medium;
+}
+
+/* Show Button Styles */
+.btn-submit {
+  background-color: #22b14a;
+  color: #fff;
+  /* border: 2px solid #22b14a; */
+  border-radius: 5px;
+  padding: 2px 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+/* Hover effect */
+.btn-submit:hover {
+  background-color: #22b14a;
+  border-color: #22b14a;
+}
+
+/* Focus effect for accessibility */
+.btn-submit:focus {
+  outline: 1px solid #22b14a;
+}
+
+/* Active effect */
+.btn-submit:active {
+  background-color: #13742e;
+  border-color: #13742e;
+  transform: scale(0.98);
+}
+
+/* Responsive design: Adjust padding on smaller screens */
+@media (max-width: 600px) {
+  .btn-submit {
+    padding: 2px 4px;
+    font-size: 0.9rem;
+  }
 }

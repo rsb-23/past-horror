@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-IN">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <style>
       .subhead {
-        font-size: 20px;
+        font-size: 1rem;
         font-weight: bold;
       }
 
@@ -14,14 +16,13 @@
     </style>
     <title>Nostalgia | AsTrO-wOrLd</title>
   </head>
-  <body background="imgs/Designer.png">
+  <body>
     <div class="all">
       <h1>What does your Birthday say?</h1>
       <label for="dob">Enter your Date of Birth:</label>
       <input type="text" id="dob_display" size="10" hidden />
-      <input type="date" id="dob" name="dob" value="1990-01-01" onchange="syncDobFields()" readonly />
-      <button type="button" class="date-picker" onclick="showDatePicker()">📅</button> <br />
-      <button onclick="showAstroData()">Show</button>
+      <input type="date" id="dob" value="1990-01-01" onchange="syncDobFields()" onclick="showDatePicker()" readonly />
+      <button class="btn-submit" onclick="showAstroData()">Show</button>
 
       <p></p>
       <div id="sun_sign" class="subhead"></div>
