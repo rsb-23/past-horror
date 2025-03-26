@@ -1,7 +1,6 @@
 html {
   font-size: 18px; /* Base font size */
 }
-
 body {
   font-size: 1rem;
   font-family: Arial, sans-serif;
@@ -13,7 +12,9 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
-
+a {
+  color: blue;
+}
 .all {
   width: 70%;
   max-width: 600px;
