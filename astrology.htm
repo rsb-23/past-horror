@@ -31,14 +31,15 @@
     <div class="all">
       <div class="home-icon" onclick="location.href='.'">🏠</div>
       <header>What does your Birthday say?</header>
-      <div class="form">
-        <label for="dob">Enter your Date of Birth:</label>
-        <input type="text" id="dob_display" size="10" hidden />
-        <input type="date" id="dob" value="2000-01-01" onchange="syncDobFields()" onclick="showDatePicker()" readonly />
-        <button class="btn-submit" onclick="showAstroData()">Show</button>
-      </div>
+      <main>
+        <div class="form">
+          <label for="dob">Enter your Date of Birth:</label>
+          <input type="date" id="dob" value="2000-01-01" onclick="showDatePicker()" readonly />
+          <button class="btn-submit" onclick="showAstroData()">Show</button>
+        </div>
 
-      <div id="astro-data"></div>
+        <div id="astro-data"></div>
+      </main>
 
       <footer>References: Data is based on random articles from year 2010.</footer>
     </div>

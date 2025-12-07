@@ -136,13 +136,3 @@ function showDatePicker() {
   dateInput.showPicker();
   dateInput.setAttribute('readonly', true);
 }
-
-function syncDobFields() {
-  const dateInput = document.getElementById('dob');
-  document.getElementById('dob_display').value = new Date(dateInput.value).toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  });
-}
-syncDobFields();

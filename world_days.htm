@@ -30,7 +30,7 @@
     <div class="all">
       <div class="home-icon" onclick="location.href='.'">🏠</div>
       <header>Famous Days <span class="sm-head">and</span> Birthdays</header>
-      <div id="events" class="card-container"></div>
+      <main id="events" class="card-container"></main>
     </div>
 
     <template>
@@ -43,9 +43,7 @@
     <script src="js/world_days.js"></script>
     <script>
       var today = new Date();
-      today.setHours(0, 0, 0, 0); // Ignore time part of today's date.
-
-      var eventsDiv = document.getElementById('events');
+      const eventsDiv = document.getElementById('events');
       const eventTemplate = document.querySelector('template');
 
       function addEvent(events, icon, parentDiv) {

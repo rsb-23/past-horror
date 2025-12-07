@@ -78,15 +78,17 @@ a {
 
 .all {
   position: relative;
-  width: 70%;
-  max-width: 600px;
-  min-height: 300px;
+  width: min(600px, 70%);
+  min-height: 60vh;
   margin: auto;
   padding: 2rem 2rem 1rem 2rem;
   border-radius: 15px;
-  justify-content: space-between;
   display: flex;
   flex-direction: column;
+}
+main {
+  flex: 1;
+  align-content: start;
 }
 
 /* Basic reset for button */
