@@ -1,9 +1,17 @@
 const base_year = 2024;
+const template = document.querySelector('template');
 
 function getDate(mm_dd) {
   dt = new Date(base_year + '-' + mm_dd);
   dt.setHours(0, 0, 0, 0);
   return dt;
+}
+
+function fillInfo(title, description) {
+  const section = template.content.cloneNode(true);
+  section.querySelector('label').innerHTML = title;
+  section.querySelector('p').textContent = description;
+  document.querySelector('#astro-data').append(section);
 }
 
 function showBirdInfo(bdate) {
@@ -28,8 +36,7 @@ function showBirdInfo(bdate) {
   var bird = Object.keys(birds).find(x => bdate >= getDate(birds[x][0]) && bdate <= getDate(birds[x][1]));
   bird = bird.trimEnd();
 
-  document.getElementById('bird').innerHTML = 'Spirit Bird : ' + bird;
-  document.getElementById('bird_detail').innerHTML = BIRDS[bird];
+  fillInfo('Spirit Bird : ' + bird, BIRDS[bird]);
 }
 function showTreeInfo(bdate) {
   // date range in mm_dd format
@@ -80,9 +87,11 @@ function showTreeInfo(bdate) {
   );
   tree = tree.trimEnd();
 
-  var trait = '<font color=' + TREE_TRAITS[tree][0] + '>' + TREE_TRAITS[tree][1] + '</font>';
-  document.getElementById('tree').innerHTML = 'Spirit Tree : ' + tree + ', which symbolizes <b>' + trait + '</b>';
-  document.getElementById('tree_detail').innerHTML = TREES[tree];
+  var trait = document.createElement('b');
+  trait.style.color = TREE_TRAITS[tree][0];
+  trait.textContent = TREE_TRAITS[tree][1];
+
+  fillInfo('Spirit Tree : ' + tree + ', which symbolizes ' + trait.outerHTML, TREES[tree]);
 }
 function showZodiacInfo(bdate) {
   // date range in mm format
@@ -108,10 +117,10 @@ function showZodiacInfo(bdate) {
     sign = 'Capricorn';
   }
 
-  document.getElementById('sun_sign').innerHTML = 'SunSign : ' + sign;
-  document.getElementById('sun_sign_detail').innerHTML = SUNSIGNS[sign];
+  fillInfo('SunSign : ' + sign, SUNSIGNS[sign]);
 }
 function showAstroData() {
+  document.querySelector('#astro-data').innerHTML = null;
   var dob = new Date(document.getElementById('dob').value);
   dob.setFullYear(base_year);
   dob.setHours(0, 0, 0, 0);

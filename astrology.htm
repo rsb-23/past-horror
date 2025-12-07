@@ -4,41 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="icon" href="favicon.png" />
     <style>
-      .subhead {
-        font-size: 1rem;
+      .form {
+        padding: 0px 15px;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 10px;
+      }
+      #dob {
+        font-size: 0.8em;
+        text-align: right;
+      }
+      .title {
+        font-size: 1em;
         font-weight: bold;
       }
-
-      .detail {
-        width: 70%;
+      .description {
+        text-align: justify;
+        margin: 10px;
       }
     </style>
     <title>Nostalgia | AsTrO-wOrLd</title>
   </head>
   <body>
     <div class="all">
-      <h1>What does your Birthday say?</h1>
-      <label for="dob">Enter your Date of Birth:</label>
-      <input type="text" id="dob_display" size="10" hidden />
-      <input type="date" id="dob" value="1990-01-01" onchange="syncDobFields()" onclick="showDatePicker()" readonly />
-      <button class="btn-submit" onclick="showAstroData()">Show</button>
+      <div class="home-icon" onclick="location.href='.'">🏠</div>
+      <header>What does your Birthday say?</header>
+      <div class="form">
+        <label for="dob">Enter your Date of Birth:</label>
+        <input type="text" id="dob_display" size="10" hidden />
+        <input type="date" id="dob" value="2000-01-01" onchange="syncDobFields()" onclick="showDatePicker()" readonly />
+        <button class="btn-submit" onclick="showAstroData()">Show</button>
+      </div>
 
-      <p></p>
-      <div id="sun_sign" class="subhead"></div>
-      <div id="sun_sign_detail" class="detail"></div>
+      <div id="astro-data"></div>
 
-      <p></p>
-      <div id="bird" class="subhead"></div>
-      <div id="bird_detail" class="detail"></div>
-
-      <p></p>
-      <div id="tree" class="subhead"></div>
-      <div id="tree_detail" class="detail"></div>
-
-      <hr />
-      <h5>References: Data is based on random articles from year 2010.</h5>
+      <footer>References: Data is based on random articles from year 2010.</footer>
     </div>
+
+    <template>
+      <div>
+        <label class="title"></label>
+        <p class="description"></p>
+      </div>
+    </template>
+
     <script src="js/astro_data.js"></script>
     <script src="js/util.js"></script>
   </body>

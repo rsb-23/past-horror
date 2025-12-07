@@ -4,22 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="icon" href="favicon.png" />
     <style>
       .event {
-        margin-bottom: 20px;
+        width: auto;
+        align-items: normal;
+        display: block;
       }
-
       .event-date {
         font-weight: bold;
       }
-
       ul {
-        list-style-type: '- ';
-        margin-left: -10px;
+        list-style: none;
+        padding-inline-start: 10px;
       }
-
-      li {
-        margin-left: 10px;
+      li::before {
+        content: attr(data-icon);
+        margin-right: 10px;
       }
     </style>
     <title>Nostalgia | Famous Days &amp; Birthdays</title>
@@ -27,9 +28,17 @@
 
   <body>
     <div class="all">
-      <h1>Famous Days and Birthdays</h1>
-      <div id="events"></div>
+      <div class="home-icon" onclick="location.href='.'">🏠</div>
+      <header>Famous Days <span class="sm-head">and</span> Birthdays</header>
+      <div id="events" class="card-container"></div>
     </div>
+
+    <template>
+      <div class="card event">
+        <div class="event-date"></div>
+        <ul></ul>
+      </div>
+    </template>
 
     <script src="js/world_days.js"></script>
     <script>
@@ -37,51 +46,39 @@
       today.setHours(0, 0, 0, 0); // Ignore time part of today's date.
 
       var eventsDiv = document.getElementById('events');
-      var count = 0;
-      while (count < 3) {
-        day = dateKey(today);
-        if (day in specialDays || day in celebBdays) {
-          var eventDiv = document.createElement('div');
-          eventDiv.className = 'event';
+      const eventTemplate = document.querySelector('template');
 
-          var eventDateDiv = document.createElement('div');
-          eventDateDiv.className = 'event-date';
-          eventDateDiv.textContent = 'Date: ' + today.toDateString();
-          eventDiv.appendChild(eventDateDiv);
-
-          if (day in specialDays) {
-            var eventLabel = document.createElement('span');
-            eventLabel.textContent = 'World Days :';
-
-            var eventList = document.createElement('ul');
-            for (i in specialDays[day]) {
-              var listItem = document.createElement('li');
-              listItem.innerHTML = specialDays[day][i];
-              eventList.appendChild(listItem);
-            }
-
-            eventDiv.append(eventLabel);
-            eventDiv.appendChild(eventList);
+      function addEvent(events, icon, parentDiv) {
+        if (events) {
+          var eventList = parentDiv.querySelector('ul');
+          for (i in events) {
+            var listItem = document.createElement('li');
+            listItem.dataset.icon = icon;
+            listItem.textContent = events[i];
+            eventList.appendChild(listItem);
           }
-
-          if (day in celebBdays) {
-            var bdayLabel = document.createElement('label');
-            bdayLabel.textContent = 'Birthdays :';
-            var bdayList = document.createElement('ul');
-            for (i in celebBdays[day]) {
-              var listItem = document.createElement('li');
-              listItem.textContent = celebBdays[day][i];
-              bdayList.appendChild(listItem);
-            }
-
-            eventDiv.append(bdayLabel);
-            eventDiv.appendChild(bdayList);
-          }
-
-          eventsDiv.appendChild(eventDiv);
-          count++;
         }
+      }
+
+      var count = 0;
+      while (count < 4) {
+        currDay = dateKey(today);
+        eventDate = today.toDateString();
         today.setDate(today.getDate() + 1);
+
+        if (!(currDay in specialDays || currDay in celebBdays)) {
+          continue;
+        }
+
+        var eventDiv = eventTemplate.content.cloneNode(true);
+        var eventDateDiv = eventDiv.querySelector('.event-date');
+        eventDateDiv.textContent = eventDate;
+
+        addEvent(specialDays[currDay], '🌐', eventDiv);
+        addEvent(celebBdays[currDay], '🎂', eventDiv);
+
+        eventsDiv.appendChild(eventDiv);
+        count++;
       }
     </script>
   </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,15 +12,27 @@
 
     <title>Nostalgia</title>
   </head>
+  <style>
+    header > * {
+      display: block;
+    }
+    header > .sm-head {
+      font-size: 0.5em;
+    }
+  </style>
 
   <body>
     <div class="all">
-      <h1>Welcome to the World of Kalicharan</h1>
-      <p>My projects from 2000-2010</p>
-      <ul>
-        <li><a href="astrology.htm">Astro-World</a></li>
-        <li><a href="world_days.htm">World Days</a></li>
-      </ul>
+      <header>
+        <span>Welcome</span><span class="sm-head">to the</span>
+        <span>World of Kalicharan</span>
+      </header>
+
+      <div class="card-container">
+        <a href="astrology.htm"><div class="card">Astro-World</div></a>
+        <a href="world_days.htm"><div class="card">World Days</div></a>
+      </div>
+      <footer>PS : My projects from 2000-2010</footer>
     </div>
   </body>
 </html>
